@@ -1,0 +1,10 @@
+.Story-Author {
+  display: flex;
+  align-items: center;
+}
+.Story-Author-Name {
+  padding-left: 12px;
+}
+.Story-image {
+  height: 300px;
+}

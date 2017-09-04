@@ -1,0 +1,9 @@
+.Loading {
+  text-align: center;
+  font-size: 2em;
+  color: #AAA;
+  margin-top: 2em;
+}
+.Loading-text {
+  font-family: "Roboto Mono";
+}

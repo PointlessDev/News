@@ -1,0 +1,16 @@
+.Header-wrapper {
+  padding: 5em 0;
+  text-align: center;
+  background-color: #222;
+}
+
+.Header-icon-wrapper {
+  width: 96px;
+  height: 96px;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+.Header-icon-wrapper svg {
+  top: -24px;
+}
