@@ -4,13 +4,10 @@ language: node_js
 node_js: '8'
 branches:
   only:
-    - master
+  - master
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_a8f668d603d4_key -iv $encrypted_a8f668d603d4_iv -in keys/deploy.enc -out keys/deploy -d
+  - chmod 600 keys/deploy
 
-#before_install:
-  # - chmod 400 keys/deploy # To prevent the agent from being a pain
-
-before_script:
-  #- npm install -g @angular/cli karma angular-cli-ghpages
-
-#script: build.sh
+script: build.sh
