@@ -13,7 +13,8 @@ fi
 
 # Save some useful information
 REPO=`git config remote.origin.url`
-SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+#SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+SSH_REPO=$REPO
 SHA=`git rev-parse --verify HEAD`
 
 # Clone the existing gh-pages for this repo into out/
