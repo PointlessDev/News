@@ -8,11 +8,9 @@ class Story extends Component {
   render() {
     const story = this.props.story;
 
-    console.log(story.image);
-
     return (
       <Card style={{maxWidth: 500, margin: '12px auto'}} className="Story">
-        <CardMedia image={story.image} className="Story-image" />
+        <CardMedia image={story.imageUrl} className="Story-image" />
         <CardContent>
           <Typeography type="headline">
             {story.title}

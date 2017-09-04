@@ -19,6 +19,9 @@ export async function generateStories(amount) {
 export async function generateStory() {
   const title = await generateInfo();
   const author = await generateAuthor();
+  const imageUrl = `https://lorempixel.com/500/${imageHeight}/?nocache=` + Math.random().toString(36).substr(2);
+
+  await loadImage(imageUrl);
 
   return {
     title: title.title,
@@ -26,7 +29,7 @@ export async function generateStory() {
     authorPicture: author.picture.thumbnail,
     url: title.url,
     imageHeight: imageHeight,
-    image: `https://lorempixel.com/500/${imageHeight}/?nocache=` + Math.random().toString(36).substr(2),
+    imageUrl: imageUrl,
     content: generateContent(),
     date: new Date(title.pubdate)
   }
@@ -56,3 +59,13 @@ function capitalize(word) {
   return word[0].toUpperCase() + word.substr(1);
 }
 
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    console.log('Preloading ', url);
+    const image = new Image();
+    image.src = url;
+    image.addEventListener('load', () => resolve());
+    image.addEventListener('error', () => reject());
+  })
+}

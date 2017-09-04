@@ -41,13 +41,13 @@ class App extends Component {
     );
   }
 
-  addStoryTimer = () => {
-    this.addStory();
+  addStoryTimer = async () => {
+    await this.addStory();
     setTimeout(this.addStoryTimer, Math.floor((Math.random() * 5000) + 5000));
   };
 
   componentDidMount() {
-    setTimeout(this.addStoryTimer(), 4000);
+    setTimeout(this.addStoryTimer, 4000);
   }
 
   render() {
