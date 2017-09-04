@@ -1,0 +1,16 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js: '8'
+branches:
+  only:
+    - master
+
+
+#before_install:
+  # - chmod 400 keys/deploy # To prevent the agent from being a pain
+
+before_script:
+  #- npm install -g @angular/cli karma angular-cli-ghpages
+
+#script: build.sh
