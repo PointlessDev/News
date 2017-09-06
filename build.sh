@@ -51,4 +51,4 @@ eval `ssh-agent -s`
 ssh-add ../keys/deploy
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH
+git push git@github.com:${TRAVIS_REPO_SLUG}.git $TARGET_BRANCH
