@@ -31,7 +31,7 @@ rm -rf build/**/* || exit 0
 npm run build
 
 # build let's go have some fun with the cloned repo
-cd out
+cd build
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
