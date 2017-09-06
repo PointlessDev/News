@@ -44,9 +44,6 @@ export async function generateInfo() {
   return infoCache.shift();
 }
 
-function randomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
 function capitalize(word) {
   return word[0].toUpperCase() + word.substr(1);
 }
