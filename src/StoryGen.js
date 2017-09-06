@@ -1,8 +1,5 @@
-import snekfetch from 'snekfetch';
+import {getJson} from "./http";
 
-const contents = [
-  'Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica'
-];
 const imageHeight = 300;
 
 const infoCache = [];
@@ -30,27 +27,22 @@ export async function generateStory() {
     url: title.url,
     imageHeight: imageHeight,
     imageUrl: imageUrl,
-    content: generateContent(),
     date: new Date(title.pubdate)
   }
 }
 
-export function generateContent() {
-  return randomItem(contents)
-}
 export async function generateAuthor() {
-  const author = (await snekfetch.get('https://randomuser.me/api/?nat=nz')).body.results[0];
+  const author = (await getJson('https://randomuser.me/api/?nat=nz')).body.results[0];
   author.name = capitalize(author.name.first) + ' ' + capitalize(author.name.last);
 
   return author;
 }
 export async function generateInfo() {
   if(!infoCache.length)
-    infoCache.push(...(await snekfetch.get('https://api2.contentforest.com/blog/clickbaitheadlines')).body);
+    infoCache.push(...(await getJson('https://api2.contentforest.com/blog/clickbaitheadlines')).body);
 
   return infoCache.shift();
 }
-
 
 function randomItem(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -62,7 +54,6 @@ function capitalize(word) {
 
 function loadImage(url) {
   return new Promise((resolve, reject) => {
-    console.log('Preloading ', url);
     const image = new Image();
     image.src = url;
     image.addEventListener('load', () => resolve());

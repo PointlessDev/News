@@ -25,7 +25,7 @@ class App extends Component {
   addStory = async () => {
     const story = await generateStory();
     this.setState({
-      stories: this.state.stories.concat(this.makeStoryElement(story))
+      stories: this.state.stories.concat([this.makeStoryElement(story)])
     });
   };
 
@@ -43,7 +43,7 @@ class App extends Component {
 
   addStoryTimer = async () => {
     await this.addStory();
-    setTimeout(this.addStoryTimer, Math.floor((Math.random() * 5000) + 5000));
+    setTimeout(this.addStoryTimer, Math.floor((Math.random() * 5000) + 4000));
   };
 
   componentDidMount() {
@@ -51,11 +51,13 @@ class App extends Component {
   }
 
   render() {
+    const stories = this.state.stories.slice();
+
     return (
       <div className="App-wrapper">
         <Header />
         <div className="App-feed">
-          {this.state.stories.reverse()}
+          {stories.reverse()}
         </div>
         {this.state.stories.length ? null : (<Loading />)}
       </div>
