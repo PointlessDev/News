@@ -32,7 +32,6 @@ npm run build
 
 # build let's go have some fun with the cloned repo
 cd build
-git init
 git config user.name "Travis CI"
 git config user.email "travis@pointless.me"
 
