@@ -32,6 +32,7 @@ npm run build
 
 # build let's go have some fun with the cloned repo
 cd build
+git init
 git config user.name "Travis CI"
 git config user.email "travis@pointless.me"
 
@@ -51,4 +52,5 @@ eval `ssh-agent -s`
 ssh-add ../keys/deploy
 
 # Now that we're all set up, we can push.
+git branch -m $TARGET_BRANCH
 git push --force git@github.com:${TRAVIS_REPO_SLUG}.git $TARGET_BRANCH
